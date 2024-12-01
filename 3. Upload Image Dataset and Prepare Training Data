@@ -6,3 +6,24 @@ drive.mount('/content/gdrive')
 
 Langkah ke 2
 !wget -O /content/images.zip https://www.dropbox.com/scl/fi/9or1t6q9i1pz1u1rqg8rq/images.zip?rlkey=5ep8nheakrr961boppn3rai6c&st=y71cu752&dl=0  # United States coin images
+
+Langkah ke 3 memastikan disimpan di folder yang tepat
+ls /content/
+
+Langkah ke 4 karna tidak bisa unzip otomatis maka perlu codingan
+import zipfile
+import os
+
+# Lokasi file ZIP
+zip_path = "/content/images.zip"
+
+# Direktori tujuan ekstraksi
+extract_dir = "/content/images/"
+
+# Ekstrak file ZIP
+with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+    zip_ref.extractall(extract_dir)
+
+# Tampilkan daftar file di folder hasil ekstraksi
+print("File berhasil diekstrak ke:", extract_dir)
+print(os.listdir(extract_dir))
