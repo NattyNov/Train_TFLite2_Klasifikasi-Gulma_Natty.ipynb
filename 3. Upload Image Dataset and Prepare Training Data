@@ -28,7 +28,20 @@ with zipfile.ZipFile(zip_path, 'r') as zip_ref:
 print("File berhasil diekstrak ke:", extract_dir)
 print(os.listdir(extract_dir))
 
-Langkah ke 5 
+Langkah ke 5 = 3.2 Split images into train, validation, and test folders
 !mkdir /content/images
 !unzip -q images.zip -d /content/images1/all
 !mkdir /content/images1/train; mkdir /content/images1/validation; mkdir /content/images1/test
+
+Langkah ke 6
+!wget https://raw.githubusercontent.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/master/util_scripts/train_val_test_split.py
+!python train_val_test_split.py
+
+Langkah ke 7 = 3.3 Create Labelmap and TFRecords
+### This creates a a "labelmap.txt" file with a list of classes the object detection model will detect.
+%%bash
+cat <<EOF >> /content/labelmap.txt
+Gulma daun sempit
+Gulma daun lebar
+Gulma teki-tekian
+EOF
