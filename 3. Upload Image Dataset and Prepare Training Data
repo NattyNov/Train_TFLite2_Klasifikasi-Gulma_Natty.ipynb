@@ -1,0 +1,8 @@
+Langkah ke 1
+from google.colab import drive
+drive.mount('/content/gdrive')
+
+!cp /content/gdrive/MyDrive/datasets/deteksi-gulma/images.zip /content
+
+Langkah ke 2
+!wget -O /content/images.zip https://www.dropbox.com/scl/fi/9or1t6q9i1pz1u1rqg8rq/images.zip?rlkey=5ep8nheakrr961boppn3rai6c&st=y71cu752&dl=0  # United States coin images
