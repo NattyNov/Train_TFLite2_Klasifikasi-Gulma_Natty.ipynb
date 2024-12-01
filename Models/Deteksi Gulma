@@ -1,1 +1,12 @@
+Link Google Colab: https://colab.research.google.com/github/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/blob/master/Train_TFLite2_Object_Detction_Model.ipynb
+Link Github: https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md
 
+Install TensorFlow 
+Object Detection Dependencies --> dari google colab tinggal run aja
+
+Upload Datasets
+-Hubungkan ke grive:
+from google.colab import drive
+drive.mount('/content/gdrive')
+
+!cp /content/gdrive/MyDrive/datasets/deteksi-gulma/images.zip /content
