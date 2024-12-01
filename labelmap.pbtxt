@@ -1,0 +1,15 @@
+item {
+  id: 1
+  name: 'Gulma daun sempit'
+}
+
+item {
+  id: 2
+  name: 'Gulma daun lebar'
+}
+
+item {
+  id: 3
+  name: 'Gulma teki-tekian'
+}
+
