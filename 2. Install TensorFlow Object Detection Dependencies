@@ -1,0 +1,24 @@
+Langkah 1-3 tinggal run di google colab
+Langkah 4
+# Install the Object Detection API (NOTE: This block takes about 10 minutes to finish executing)
+
+# Need to do a temporary fix with PyYAML because Colab isn't able to install PyYAML v5.4.1
+!pip install pyyaml==5.3
+!pip install /content/models/research/
+
+# Need to downgrade to TF v2.8.0 due to Colab compatibility bug with TF v2.10 (as of 10/03/22)
+!pip install tensorflow==2.11.0
+
+# Install CUDA version 11.0 (to maintain compatibility with TF v2.8.0)
+!pip install tensorflow_io==0.23.1
+!wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
+!mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
+!wget http://developer.download.nvidia.com/compute/cuda/11.0.2/local_installers/cuda-repo-ubuntu1804-11-0-local_11.0.2-450.51.05-1_amd64.deb
+!dpkg -i cuda-repo-ubuntu1804-11-0-local_11.0.2-450.51.05-1_amd64.deb
+!apt-key add /var/cuda-repo-ubuntu1804-11-0-local/7fa2af80.pub
+!apt-get update && sudo apt-get install cuda-toolkit-11-0
+!export LD_LIBRARY_PATH=/usr/local/cuda-11.0/lib64:$LD_LIBRARY_PATH
+
+Langkah ke 5
+# Run Model Bulider Test file, just to verify everything's working properly
+!python /content/models/research/object_detection/builders/model_builder_tf2_test.py
