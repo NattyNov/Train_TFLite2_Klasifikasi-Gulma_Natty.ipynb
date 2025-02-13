@@ -14,11 +14,11 @@ os.makedirs(os.path.join(output_folder, 'validation'), exist_ok=True)
 # Mendapatkan semua file gambar (.jpg, .png, .jpeg)
 image_files = [f for f in os.listdir(image_folder) if f.lower().endswith(('.jpg', '.jpeg', '.png'))]
 
-# Pisahkan gambar menjadi train + validation dan test (80% untuk training, 20% untuk testing+validasi)
-train_val_files, test_files = train_test_split(image_files, test_size=0.2, random_state=42)
+# Pisahkan 80% data untuk training dan sisanya (20%) untuk test + validasi
+train_files, temp_files = train_test_split(image_files, test_size=0.2, random_state=42)
 
-# Pisahkan 50% dari train_val_files untuk validation (10% total untuk validation)
-train_files, val_files = train_test_split(train_val_files, test_size=0.25, random_state=42)  # 0.25 * 0.8 = 0.2
+# Pisahkan 50% dari data yang tersisa untuk test dan 50% untuk validasi (20% * 0.5 = 10%)
+test_files, val_files = train_test_split(temp_files, test_size=0.5, random_state=42)  # 0.5 * 0.2 = 0.1
 
 # Fungsi untuk memindahkan file gambar ke folder yang sesuai
 def move_files(file_list, folder):
@@ -28,8 +28,8 @@ def move_files(file_list, folder):
 
 # Memindahkan file gambar ke folder yang sesuai
 move_files(train_files, 'train')
-move_files(val_files, 'validation')
 move_files(test_files, 'test')
+move_files(val_files, 'validation')
 
 # Tampilkan hasil pembagian
 print("Dataset berhasil dibagi:")
