@@ -27,6 +27,8 @@ if tf_version.is_tf2():
   from object_detection.core import freezable_sync_batch_norm
 # pylint: enable=g-import-not-at-top
 
+from tensorflow.keras.layers import Resizing, RandomFlip, RandomRotation ,Rescaling
+resize_and_rescale = tf.keras.Sequential([ Resizing(IMAGE_SIZE,IMAGE_SIZE), Rescaling(1.0/255) ])
 
 class KerasLayerHyperparams(object):
   """
