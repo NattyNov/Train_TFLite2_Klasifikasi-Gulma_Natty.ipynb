@@ -17,7 +17,7 @@
 import tensorflow as tf
 
 
-class FreezableSyncBatchNorm(tf.keras.layers.experimental.SyncBatchNormalization
+class FreezableSyncBatchNorm(tf.keras.layers.BatchNormalization
                             ):
   """Sync Batch normalization layer (Ioffe and Szegedy, 2014).
 
