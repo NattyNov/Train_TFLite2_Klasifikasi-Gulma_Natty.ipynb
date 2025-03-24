@@ -821,8 +821,8 @@ class DenseResidualBlock(tf.keras.layers.Layer):
 
     super(DenseResidualBlock, self).__init__()
 
-    self.bn_0 = tf.keras.layers.experimental.SyncBatchNormalization(axis=-1)
-    self.bn_1 = tf.keras.layers.experimental.SyncBatchNormalization(axis=-1)
+    self.bn_0 = tf.keras.layers.BatchNormalization(axis=-1)
+    self.bn_1 = tf.keras.layers.BatchNormalization(axis=-1)
 
     self.fc_0 = tf.keras.layers.Dense(
         hidden_size, activation=None)
